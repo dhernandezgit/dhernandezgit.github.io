@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Hello World
+title: Hello World 2
+tags: FL
 ---
 
 Post to easily setup your own blog on Github pages.

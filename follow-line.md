@@ -1,7 +1,8 @@
 ---
 layout: postpage
-title: Index
-permalink: /index/
+title: Follow Line
+permalink: /follow-line/
+tag: FL
 ---
 
-Index here
+Follow line

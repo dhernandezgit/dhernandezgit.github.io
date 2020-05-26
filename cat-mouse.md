@@ -1,8 +1,8 @@
 ---
 layout: postpage
-title: Follow Line
-permalink: /follow-line/
-tag: FollowLine
+title: Cat-Mouse
+permalink: /cat-mouse/
+tag: CatMouse
 ---
 
-Follow line
+Cat mouse

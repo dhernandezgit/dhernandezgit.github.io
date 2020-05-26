@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First-tour – Daniel Hernández – Blog for Robotic vision</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.
+
+" />
+    <meta property="og:description" content="This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.
+
+" />
+    
+    <meta name="author" content="Daniel Hernández" />
+
+    
+    <meta property="og:title" content="First-tour" />
+    <meta property="twitter:title" content="First-tour" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Daniel Hernández - Blog for Robotic vision" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="" class="site-avatar"><img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/logo.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Daniel Hernández</a></h1>
+            <p class="site-description">Blog for Robotic vision</p>
+          </div>
+
+          <nav>
+            <a href="/index/">Index</a>
+            <!--<a href="../index">Index</a>-->
+            <a href="/about/">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>First-tour</h1>
+
+  <div class="entry">
+    <p>This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.</p>
+
+<h2 id="p-controller">P controller</h2>
+<p>The first proposed controller is a simple P controller. This means that the value of the control action in the current instant (uk) is proportional to the difference between the desired value (ref) and the measured value (yk) of the control variable. In this case, the equation on the loop is something like the following one:</p>
+<blockquote>
+  <p>uk = P * (ref - yk)</p>
+</blockquote>
+
+<p>As mentioned before, the control action for this first test is directly the angular speed (W) of the vehicle, with a fixed value of linear speed (V). The measured value is not so straightforward and there are several possible measurable values from the processed image that will be discussed on the following post. For this one, the measured value is the position on pixels of the center of the line on the first row of the image, calculated as the mean value of the pixels labeled as line. The set point or reference is the desired position on pixels of the line, in this case the center of the image.</p>
+
+<p>With this, and performing some initial tests to find the appropriate values for this 2 parameters (P and V) we get a first working controller!</p>
+
+<p>Video P</p>
+
+<h2 id="pd-controller">PD controller</h2>
+<p>Working a bit more, we can use not just the actual value of the error (ek) calculated as (ref - y) but also the past values to calculate the control action. In this case, it’s only needed to initialize a variable to store the past value of the error and update the control action with the following equation:</p>
+<blockquote>
+  <p>uk = P * ek + D * (ek - ek-1)</p>
+</blockquote>
+
+<p>In this case, tuning the 3 parameters it’s observable that the controller can reach a greater speed without losing the stability, as we include the value of the error tendency on the formula. With this simple steps, we designed our first working controller*!</p>
+
+<p>Video PD</p>
+
+<p>*Do not try this with you own car. Seriously.</p>
+
+<p>Image JdeRobot
+<img src="&quot;Test&quot;" alt="Test" /></p>
+
+  </div>
+
+  <div class="date">
+    Written on February 20, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/dhernandezgit"><i class="svg-icon github"></i></a>
+<a href="https://instagram.com/dhaniel.photography"><i class="svg-icon instagram"></i></a>
+<a href="https://www.linkedin.com/in/daniel-hernández-ferrándiz-b30974ab"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/DanielHdezFdiz"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

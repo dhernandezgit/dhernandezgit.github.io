@@ -10,7 +10,7 @@ layout: default
   </div>
 
   <div class="posts">
-    {% for post in site.posts %}
+    {% for post in site.posts reversed %}
       {% if post.tags contains page.tag %}
         <article class="post">
 

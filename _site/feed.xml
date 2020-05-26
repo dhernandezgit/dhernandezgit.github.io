@@ -1,8 +1,68 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-03-03T15:33:37+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Hello World Drone</title><link href="http://localhost:4000/Hello-World-D/" rel="alternate" type="text/html" title="Hello World Drone" /><published>2020-02-28T00:00:00+01:00</published><updated>2020-02-28T00:00:00+01:00</updated><id>http://localhost:4000/Hello-World-D</id><content type="html" xml:base="http://localhost:4000/Hello-World-D/">&lt;p&gt;Post to easily setup your own blog on Github pages.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-27T01:06:14+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Controlling the controller</title><link href="http://localhost:4000/Controlling-the-controller/" rel="alternate" type="text/html" title="Controlling the controller" /><published>2020-02-28T00:00:00+01:00</published><updated>2020-02-28T00:00:00+01:00</updated><id>http://localhost:4000/Controlling-the-controller</id><content type="html" xml:base="http://localhost:4000/Controlling-the-controller/">&lt;p&gt;This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.&lt;/p&gt;
 
-&lt;p&gt;For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;</content><author><name></name></author><category term="D" /><summary type="html">Post to easily setup your own blog on Github pages.</summary></entry><entry><title type="html">Hello World 2</title><link href="http://localhost:4000/Hello-Worlds/" rel="alternate" type="text/html" title="Hello World 2" /><published>2020-02-27T00:00:00+01:00</published><updated>2020-02-27T00:00:00+01:00</updated><id>http://localhost:4000/Hello-Worlds</id><content type="html" xml:base="http://localhost:4000/Hello-Worlds/">&lt;p&gt;Post to easily setup your own blog on Github pages.&lt;/p&gt;
+&lt;h2 id=&quot;measuring-the-chaos&quot;&gt;Measuring the chaos&lt;/h2&gt;
 
-&lt;p&gt;For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;</content><author><name></name></author><category term="FL" /><summary type="html">Post to easily setup your own blog on Github pages.</summary></entry><entry><title type="html">Hello World</title><link href="http://localhost:4000/Hello-World/" rel="alternate" type="text/html" title="Hello World" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>http://localhost:4000/Hello-World</id><content type="html" xml:base="http://localhost:4000/Hello-World/">&lt;p&gt;&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/test.png&quot; alt=&quot;Title&quot; title=&quot;Test&quot; /&gt;
-Post to easily setup your own blog on Github pages.&lt;/p&gt;
+&lt;h2 id=&quot;one-control-to-rule-them-all&quot;&gt;One control to rule them all&lt;/h2&gt;
 
-&lt;p&gt;For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;</content><author><name></name></author><category term="FL" /><summary type="html">Post to easily setup your own blog on Github pages.</summary></entry></feed>
+&lt;h2 id=&quot;double-pd&quot;&gt;Double PD&lt;/h2&gt;
+
+&lt;h3 id=&quot;curve-detection&quot;&gt;Curve detection&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Extra ideas
+-Vacío control
+-Faster&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Image JdeRobot
+&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.</summary></entry><entry><title type="html">First-tour</title><link href="http://localhost:4000/First-tour/" rel="alternate" type="text/html" title="First-tour" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/First-tour</id><content type="html" xml:base="http://localhost:4000/First-tour/">&lt;p&gt;This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.&lt;/p&gt;
+
+&lt;h2 id=&quot;p-controller&quot;&gt;P controller&lt;/h2&gt;
+&lt;p&gt;The first proposed controller is a simple P controller. This means that the value of the control action in the current instant (uk) is proportional to the difference between the desired value (ref) and the measured value (yk) of the control variable. In this case, the equation on the loop is something like the following one:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;uk = P * (ref - yk)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;As mentioned before, the control action for this first test is directly the angular speed (W) of the vehicle, with a fixed value of linear speed (V). The measured value is not so straightforward and there are several possible measurable values from the processed image that will be discussed on the following post. For this one, the measured value is the position on pixels of the center of the line on the first row of the image, calculated as the mean value of the pixels labeled as line. The set point or reference is the desired position on pixels of the line, in this case the center of the image.&lt;/p&gt;
+
+&lt;p&gt;With this, and performing some initial tests to find the appropriate values for this 2 parameters (P and V) we get a first working controller!&lt;/p&gt;
+
+&lt;p&gt;Video P&lt;/p&gt;
+
+&lt;h2 id=&quot;pd-controller&quot;&gt;PD controller&lt;/h2&gt;
+&lt;p&gt;Working a bit more, we can use not just the actual value of the error (ek) calculated as (ref - y) but also the past values to calculate the control action. In this case, it’s only needed to initialize a variable to store the past value of the error and update the control action with the following equation:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;uk = P * ek + D * (ek - ek-1)&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;In this case, tuning the 3 parameters it’s observable that the controller can reach a greater speed without losing the stability, as we include the value of the error tendency on the formula. With this simple steps, we designed our first working controller*!&lt;/p&gt;
+
+&lt;p&gt;Video PD&lt;/p&gt;
+
+&lt;p&gt;*Do not try this with you own car. Seriously.&lt;/p&gt;
+
+&lt;p&gt;Image JdeRobot
+&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.</summary></entry><entry><title type="html">Hello World + Problem statement</title><link href="http://localhost:4000/Hello-World/" rel="alternate" type="text/html" title="Hello World + Problem statement" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/Hello-World</id><content type="html" xml:base="http://localhost:4000/Hello-World/">&lt;p&gt;This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the &lt;a href=&quot;https://jderobot.github.io/&quot;&gt;JdeRobot&lt;/a&gt; platform. The first one is the line follower explained after this intro.&lt;/p&gt;
+
+&lt;h2 id=&quot;blog-configuration&quot;&gt;Blog configuration&lt;/h2&gt;
+&lt;p&gt;For this blog I’ll be using Jekyll Now combined with Github pages. To easily setup your own blog on Github pages  head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
+
+&lt;h2 id=&quot;problem-statement&quot;&gt;Problem statement&lt;/h2&gt;
+&lt;p&gt;The follow line project consists in… Exactly that. With a F1 car. Fast. But keep calm, this will be comfortably done on a web platform with a simulated car capable of taking images with a camera on its front.&lt;/p&gt;
+
+&lt;p&gt;Image car + Camera&lt;/p&gt;
+
+&lt;p&gt;The control is directly focused on the basic movements, speed and angular speed. No more steering wheels, gears or pedals, with only two controllable actuators the control is simplified to what really matters. The goal is to keep the car as close as possible to the line while completing the full lap. And then… make it faster without crashing on the attempt.&lt;/p&gt;
+
+&lt;p&gt;Image JdeRobot
+&lt;img src=&quot;images/test.png&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the JdeRobot platform. The first one is the line follower explained after this intro.</summary></entry><entry><title type="html">Image processing</title><link href="http://localhost:4000/Image-Processing/" rel="alternate" type="text/html" title="Image processing" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/Image-Processing</id><content type="html" xml:base="http://localhost:4000/Image-Processing/">&lt;p&gt;In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.&lt;/p&gt;
+
+&lt;p&gt;Let’s take a look at an example of a frame extracted from the car.
+Image Car&lt;/p&gt;
+
+&lt;p&gt;The line is clearly of a different color from the rest of the image, being able to segment it by a simple color filter. To make it more robust, the image is processed in the HSV color-space, as the color of the line will be always red but the saturation and brightness could be different. Then, the line is defined as the pixels that are between a range of values on the HSV color-space. Furthermore, there is a part of the image with non-relevant information to track the line, given that the circuit is plain, so the mask is cropped to only contain relevant information.&lt;/p&gt;
+
+&lt;p&gt;To be able to show this processing, the resulting mask is converted to a 3 channel image by formatting the result as a uint8 array with 3 concatenated masks on the channel axis. An additional step is performed to show both the original frame and the processed frame side by side. The processed frame is resized to fit the heigth of the original one, and then they are concatenated side by side.&lt;/p&gt;
+
+&lt;p&gt;Image JdeRobot
+&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.</summary></entry></feed>

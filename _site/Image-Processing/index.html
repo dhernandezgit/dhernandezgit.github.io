@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hello World + Problem statement – Daniel Hernández – Blog for Robotic vision</title>
+    <title>Image processing – Daniel Hernández – Blog for Robotic vision</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,18 +9,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the JdeRobot platform. The first one is the line follower explained after this intro.
+    <meta name="description" content="In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.
 
 " />
-    <meta property="og:description" content="This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the JdeRobot platform. The first one is the line follower explained after this intro.
+    <meta property="og:description" content="In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.
 
 " />
     
     <meta name="author" content="Daniel Hernández" />
 
     
-    <meta property="og:title" content="Hello World + Problem statement" />
-    <meta property="twitter:title" content="Hello World + Problem statement" />
+    <meta property="og:title" content="Image processing" />
+    <meta property="twitter:title" content="Image processing" />
     
 
     <!--[if lt IE 9]>
@@ -55,23 +55,20 @@
 
     <div id="main" role="main" class="container">
       <article class="post">
-  <h1>Hello World + Problem statement</h1>
+  <h1>Image processing</h1>
 
   <div class="entry">
-    <p>This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the <a href="https://jderobot.github.io/">JdeRobot</a> platform. The first one is the line follower explained after this intro.</p>
+    <p>In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.</p>
 
-<h2 id="blog-configuration">Blog configuration</h2>
-<p>For this blog I’ll be using Jekyll Now combined with Github pages. To easily setup your own blog on Github pages  head over to the <a href="https://github.com/barryclark/jekyll-now">Jekyll Now repository</a> on GitHub.</p>
+<p>Let’s take a look at an example of a frame extracted from the car.
+Image Car</p>
 
-<h2 id="problem-statement">Problem statement</h2>
-<p>The follow line project consists in… Exactly that. With a F1 car. Fast. But keep calm, this will be comfortably done on a web platform with a simulated car capable of taking images with a camera on its front.</p>
+<p>The line is clearly of a different color from the rest of the image, being able to segment it by a simple color filter. To make it more robust, the image is processed in the HSV color-space, as the color of the line will be always red but the saturation and brightness could be different. Then, the line is defined as the pixels that are between a range of values on the HSV color-space. Furthermore, there is a part of the image with non-relevant information to track the line, given that the circuit is plain, so the mask is cropped to only contain relevant information.</p>
 
-<p>Image car + Camera</p>
-
-<p>The control is directly focused on the basic movements, speed and angular speed. No more steering wheels, gears or pedals, with only two controllable actuators the control is simplified to what really matters. The goal is to keep the car as close as possible to the line while completing the full lap. And then… make it faster without crashing on the attempt.</p>
+<p>To be able to show this processing, the resulting mask is converted to a 3 channel image by formatting the result as a uint8 array with 3 concatenated masks on the channel axis. An additional step is performed to show both the original frame and the processed frame side by side. The processed frame is resized to fit the heigth of the original one, and then they are concatenated side by side.</p>
 
 <p>Image JdeRobot
-<img src="images/test.png" alt="Test" /></p>
+<img src="&quot;Test&quot;" alt="Test" /></p>
 
   </div>
 

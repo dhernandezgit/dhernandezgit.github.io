@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Index – Daniel Hernández – Blog for Robotic vision</title>
+    <title>Matching points – Daniel Hernández – Blog for Robotic vision</title>
 
         <meta charset="utf-8" />
     <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
@@ -9,14 +9,18 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
 
     
-    <meta name="description" content="Blog for Robotic vision">
-    <meta property="og:description" content="Blog for Robotic vision" />
+    <meta name="description" content="This post talks about the current method used on point matching making use of OpenCV methods.
+
+" />
+    <meta property="og:description" content="This post talks about the current method used on point matching making use of OpenCV methods.
+
+" />
     
     <meta name="author" content="Daniel Hernández" />
 
     
-    <meta property="og:title" content="Index" />
-    <meta property="twitter:title" content="Index" />
+    <meta property="og:title" content="Matching points" />
+    <meta property="twitter:title" content="Matching points" />
     
 
     <!--[if lt IE 9]>
@@ -50,18 +54,37 @@
     </div>
 
     <div id="main" role="main" class="container">
-      <article class="page">
-
-  <h1>Index</h1>
+      <article class="post">
+  <h1>Matching points</h1>
 
   <div class="entry">
-    <ul>
-  <li><a href="https://dhernandezgit.github.io/follow-line/">Follow line</a>
-<!--- - [Drone](https://dhernandezgit.github.io/drone/) --></li>
-  <li><a href="https://dhernandezgit.github.io/3d/">3D Reconstruction</a></li>
-</ul>
+    <p>This post talks about the current method used on point matching making use of OpenCV methods.</p>
+
+<h2 id="matching">Matching</h2>
+<p>Matching points means finding a homologous point of one of the stereo cameras on the other image. This can be done by looking for the patch on the entire image, but we can speed the process knowing some properties of a stereo pair.</p>
+
+<p>The correspondent point won’t appear anywhere on the analogous image, it can be found over the epipolar stripe. This is the line where all the possible depths of the left point are projected over the left camera. In a stereo pair, the epipolar lines are horizontal lines, so the search for the patch is only done over that line.</p>
+
+<p>A patch of a preset size is created on the left image, and with the matchTemplate() function, that admits different metrics (SSD, SAD, …) to find the patch is found on the patch of the right image correspondent with the epipolar constraint and a set margin.
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/match.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br /></p>
+
+<p align="center">
+<a href="https://jderobot.github.io/">
+<img alt="JdeRobot" src="https://avatars1.githubusercontent.com/u/10959337?s=200&amp;v=4" width="15%" />
+</a>
+</p>
 
   </div>
+
+  <div class="date">
+    Written on May 24, 2020
+  </div>
+
+  
 </article>
 
     </div>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Triangulation – Daniel Hernández – Blog for Robotic vision</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post treats the reconstruction of the matching points and the results of this process.
+
+" />
+    <meta property="og:description" content="This post treats the reconstruction of the matching points and the results of this process.
+
+" />
+    
+    <meta name="author" content="Daniel Hernández" />
+
+    
+    <meta property="og:title" content="Triangulation" />
+    <meta property="twitter:title" content="Triangulation" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Daniel Hernández - Blog for Robotic vision" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="" class="site-avatar"><img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/logo.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Daniel Hernández</a></h1>
+            <p class="site-description">Blog for Robotic vision</p>
+          </div>
+
+          <nav>
+            <a href="/index/">Index</a>
+            <!--<a href="../index">Index</a>-->
+            <a href="/about/">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Triangulation</h1>
+
+  <div class="entry">
+    <p>This post treats the reconstruction of the matching points and the results of this process.</p>
+
+<h2 id="triangulation">Triangulation</h2>
+<p>Once the correspondent points are known, it’s possible to reconstruct the 3D model. The fast way is using the OpenCV function triangulatePoints over the points with a low disparity value. Disparity is the difference on coordinates between the left point and the correspondent point.</p>
+
+<p>Another possible method is using the equations of the points, where f is the focal distance, B is the baseline or distance between cameras, d is the disparity and u and v are the coordinates of the point referred to the center of the image:</p>
+<blockquote>
+  <p>Z = f * B / d</p>
+</blockquote>
+
+<blockquote>
+  <p>X = u * Z / f</p>
+</blockquote>
+
+<blockquote>
+  <p>Y = v * Z / f</p>
+</blockquote>
+
+<p>The results of this method are shown in the following sequence, where all the points are considered and it is reconstructed in row order: 
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/1.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br />
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/2.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br />
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/3.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br /></p>
+
+<h2 id="final-result">Final result</h2>
+<p>The final result is the next one, which can be overlapped with a real image of the 3D scene, with a decent amount of correspondence, specially over the right blocks.
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/4.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br />
+<br /><br /></p>
+<p align="center">
+<img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/final3d.png" alt="Scene" width="80%" />
+</p>
+<p><br /><br />
+Thanks for reading!</p>
+
+<p align="center">
+<a href="https://jderobot.github.io/">
+<img alt="JdeRobot" src="https://avatars1.githubusercontent.com/u/10959337?s=200&amp;v=4" width="15%" />
+</a>
+</p>
+
+  </div>
+
+  <div class="date">
+    Written on May 26, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/dhernandezgit"><i class="svg-icon github"></i></a>
+<a href="https://instagram.com/dhaniel.photography"><i class="svg-icon instagram"></i></a>
+<a href="https://www.linkedin.com/in/daniel-hernández-ferrándiz-b30974ab"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/DanielHdezFdiz"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

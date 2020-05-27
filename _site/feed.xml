@@ -1,12 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-27T12:47:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Problem statement</title><link href="http://localhost:4000/Problem-statement/" rel="alternate" type="text/html" title="Problem statement" /><published>2020-05-23T00:00:00+02:00</published><updated>2020-05-23T00:00:00+02:00</updated><id>http://localhost:4000/Problem-statement</id><content type="html" xml:base="http://localhost:4000/Problem-statement/">&lt;p&gt;Test&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-27T13:51:37+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Triangulation</title><link href="http://localhost:4000/Triangulation/" rel="alternate" type="text/html" title="Triangulation" /><published>2020-05-26T00:00:00+02:00</published><updated>2020-05-26T00:00:00+02:00</updated><id>http://localhost:4000/Triangulation</id><content type="html" xml:base="http://localhost:4000/Triangulation/">&lt;p&gt;This post treats the reconstruction of the matching points and the results of this process.&lt;/p&gt;
 
-&lt;h2 id=&quot;blabla&quot;&gt;Blabla&lt;/h2&gt;
+&lt;h2 id=&quot;triangulation&quot;&gt;Triangulation&lt;/h2&gt;
+&lt;p&gt;Once the correspondent points are known, it’s possible to reconstruct the 3D model. The fast way is using the OpenCV function triangulatePoints over the points with a low disparity value. Disparity is the difference on coordinates between the left point and the correspondent point.&lt;/p&gt;
+
+&lt;p&gt;Another possible method is using the equations of the points, where f is the focal distance, B is the baseline or distance between cameras, d is the disparity and u and v are the coordinates of the point referred to the center of the image:&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Z = f * B / d&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;X = u * Z / f&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Y = v * Z / f&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The results of this method are shown in the following sequence, where all the points are considered and it is reconstructed in row order: 
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/1.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/2.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/3.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;final-result&quot;&gt;Final result&lt;/h2&gt;
+&lt;p&gt;The final result is the next one, which can be overlapped with a real image of the 3D scene, with a decent amount of correspondence, specially over the right blocks.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/4.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/final3d.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Thanks for reading!&lt;/p&gt;
 
 &lt;p align=&quot;center&quot;&gt;
 &lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
 &lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
 &lt;/a&gt;
-&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">Test</summary></entry><entry><title type="html">Peak performance</title><link href="http://localhost:4000/Peak-performance/" rel="alternate" type="text/html" title="Peak performance" /><published>2020-05-22T00:00:00+02:00</published><updated>2020-05-22T00:00:00+02:00</updated><id>http://localhost:4000/Peak-performance</id><content type="html" xml:base="http://localhost:4000/Peak-performance/">&lt;p&gt;This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!&lt;/p&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">This post treats the reconstruction of the matching points and the results of this process.</summary></entry><entry><title type="html">Finding the key</title><link href="http://localhost:4000/Finding-the-key/" rel="alternate" type="text/html" title="Finding the key" /><published>2020-05-24T00:00:00+02:00</published><updated>2020-05-24T00:00:00+02:00</updated><id>http://localhost:4000/Finding-the-key</id><content type="html" xml:base="http://localhost:4000/Finding-the-key/">&lt;p&gt;In this post is treated the first step for the reconstruction, considering different options to get a set of points to reconstruct.&lt;/p&gt;
+
+&lt;h2 id=&quot;keypoints&quot;&gt;Keypoints&lt;/h2&gt;
+&lt;p&gt;The selection of the points for the reconstruction is the key to get a solid mesh of points, easily findable by the matching algorithm and speeding up the process of the reconstruction.&lt;/p&gt;
+
+&lt;p&gt;Among the several methods considered for the point selection are:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Edge filters: Edge filtering is the easiest way to obtain a reduced set of points with enough variance to find them on a correspondent image. Some of the most known edge filters are Sobel, Robers or Canny (shown below).&lt;/li&gt;
+  &lt;li&gt;Lines or corners: Some methods employ only corner points easily findable, like the Harris detector.&lt;/li&gt;
+  &lt;li&gt;Feature selection: Some algorithm like SIFT or SURF use features to find special points easily distinguished.&lt;/li&gt;
+  &lt;li&gt;EVERY POINT!: This is the last option, viable when we want a dense reconstruction of the scene, but considerably slower than the others. 
+&lt;br /&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/canny.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">In this post is treated the first step for the reconstruction, considering different options to get a set of points to reconstruct.</summary></entry><entry><title type="html">Matching points</title><link href="http://localhost:4000/Matching-points/" rel="alternate" type="text/html" title="Matching points" /><published>2020-05-24T00:00:00+02:00</published><updated>2020-05-24T00:00:00+02:00</updated><id>http://localhost:4000/Matching-points</id><content type="html" xml:base="http://localhost:4000/Matching-points/">&lt;p&gt;This post talks about the current method used on point matching making use of OpenCV methods.&lt;/p&gt;
+
+&lt;h2 id=&quot;matching&quot;&gt;Matching&lt;/h2&gt;
+&lt;p&gt;Matching points means finding a homologous point of one of the stereo cameras on the other image. This can be done by looking for the patch on the entire image, but we can speed the process knowing some properties of a stereo pair.&lt;/p&gt;
+
+&lt;p&gt;The correspondent point won’t appear anywhere on the analogous image, it can be found over the epipolar stripe. This is the line where all the possible depths of the left point are projected over the left camera. In a stereo pair, the epipolar lines are horizontal lines, so the search for the patch is only done over that line.&lt;/p&gt;
+
+&lt;p&gt;A patch of a preset size is created on the left image, and with the matchTemplate() function, that admits different metrics (SSD, SAD, …) to find the patch is found on the patch of the right image correspondent with the epipolar constraint and a set margin.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/match.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">This post talks about the current method used on point matching making use of OpenCV methods.</summary></entry><entry><title type="html">Problem statement</title><link href="http://localhost:4000/Problem-statement/" rel="alternate" type="text/html" title="Problem statement" /><published>2020-05-23T00:00:00+02:00</published><updated>2020-05-23T00:00:00+02:00</updated><id>http://localhost:4000/Problem-statement</id><content type="html" xml:base="http://localhost:4000/Problem-statement/">&lt;p&gt;In this post is explained the material and objective of the 3D reconstruction project. Given a robot with a pair of cameras and a set of figurines, the objective is getting the 3D position of some points of the real world, possibly making the robot capable of interacting with it.&lt;/p&gt;
+
+&lt;h2 id=&quot;scene&quot;&gt;Scene&lt;/h2&gt;
+&lt;p&gt;This project consists on the 3D reconstruction of the following scene:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/scene.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+With the robot on the bottom part of the image, which has a couple of cameras in a canonical form, meaning that they are aligned at a given distance. This is known cause it is given access to the calibration matrixes of the cameras via command interface. There are two matrixes returned, the intrinsics matrix K, where we can find the values of the focal length in pixels and center of the image and the extrinsic matrixes RT, where we can find the position and orientation of the cameras. An example image retrieved with the camera pair is the following one:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/imgs.png&quot; alt=&quot;Scene&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">In this post is explained the material and objective of the 3D reconstruction project. Given a robot with a pair of cameras and a set of figurines, the objective is getting the 3D position of some points of the real world, possibly making the robot capable of interacting with it.</summary></entry><entry><title type="html">Peak performance</title><link href="http://localhost:4000/Peak-performance/" rel="alternate" type="text/html" title="Peak performance" /><published>2020-05-22T00:00:00+02:00</published><updated>2020-05-22T00:00:00+02:00</updated><id>http://localhost:4000/Peak-performance</id><content type="html" xml:base="http://localhost:4000/Peak-performance/">&lt;p&gt;This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!&lt;/p&gt;
 
 &lt;h2 id=&quot;one-control-to-rule-them-all&quot;&gt;One control to rule them all&lt;/h2&gt;
 &lt;p&gt;What happens when the controller lose control? This is the part where we prevent the possible situation of not being able to find the line. The current solution is going back slowly and spinning in the opposite direction of where the line was last seen. This way the controller is able to refind the line and go back to the circuit… If the car model survived the crash.&lt;/p&gt;

@@ -1,21 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-27T01:06:14+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Controlling the controller</title><link href="http://localhost:4000/Controlling-the-controller/" rel="alternate" type="text/html" title="Controlling the controller" /><published>2020-02-28T00:00:00+01:00</published><updated>2020-02-28T00:00:00+01:00</updated><id>http://localhost:4000/Controlling-the-controller</id><content type="html" xml:base="http://localhost:4000/Controlling-the-controller/">&lt;p&gt;This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-05-27T12:47:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Daniel Hernández</title><subtitle>Blog for Robotic vision</subtitle><entry><title type="html">Problem statement</title><link href="http://localhost:4000/Problem-statement/" rel="alternate" type="text/html" title="Problem statement" /><published>2020-05-23T00:00:00+02:00</published><updated>2020-05-23T00:00:00+02:00</updated><id>http://localhost:4000/Problem-statement</id><content type="html" xml:base="http://localhost:4000/Problem-statement/">&lt;p&gt;Test&lt;/p&gt;
 
-&lt;h2 id=&quot;measuring-the-chaos&quot;&gt;Measuring the chaos&lt;/h2&gt;
+&lt;h2 id=&quot;blabla&quot;&gt;Blabla&lt;/h2&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="Reconstruction" /><summary type="html">Test</summary></entry><entry><title type="html">Peak performance</title><link href="http://localhost:4000/Peak-performance/" rel="alternate" type="text/html" title="Peak performance" /><published>2020-05-22T00:00:00+02:00</published><updated>2020-05-22T00:00:00+02:00</updated><id>http://localhost:4000/Peak-performance</id><content type="html" xml:base="http://localhost:4000/Peak-performance/">&lt;p&gt;This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!&lt;/p&gt;
 
 &lt;h2 id=&quot;one-control-to-rule-them-all&quot;&gt;One control to rule them all&lt;/h2&gt;
+&lt;p&gt;What happens when the controller lose control? This is the part where we prevent the possible situation of not being able to find the line. The current solution is going back slowly and spinning in the opposite direction of where the line was last seen. This way the controller is able to refind the line and go back to the circuit… If the car model survived the crash.&lt;/p&gt;
+
+&lt;h2 id=&quot;faster&quot;&gt;Faster&lt;/h2&gt;
+&lt;p&gt;The first option to break records is fine tuning. The process to find the best controller was slowly increasing the speed of one part of the control and adjusting each one of the parameters separately, and then increasing the speed of the opposite part. This method, as simple as it seems really increased the performance of the control, being able to reach speeds of 25 over the curves.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/AnQLBhLMvBQ&quot;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+The last option to gain some extra milliseconds is including acceleration to the controller. In this case it is achieved by increasing the speed reference while it remains the same (line or curve) and resetting the value to the starting value when the control changes. This method allowed to reach the speed of 50 on the long straight lines, but failing to work properly on the curves.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/mCYW-yUiIjA&quot;&gt;
+&lt;/iframe&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Finally, here is a detailed tour of the circuit with a stable and fast controller, playing with the Gazebo interface.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/3L1nTG8VqS8&quot;&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;Thanks for reading!&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!</summary></entry><entry><title type="html">Controlling the controller</title><link href="http://localhost:4000/Controlling-the-controller/" rel="alternate" type="text/html" title="Controlling the controller" /><published>2020-02-28T00:00:00+01:00</published><updated>2020-02-28T00:00:00+01:00</updated><id>http://localhost:4000/Controlling-the-controller</id><content type="html" xml:base="http://localhost:4000/Controlling-the-controller/">&lt;p&gt;This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.&lt;/p&gt;
+
+&lt;h2 id=&quot;measuring-the-chaos&quot;&gt;Measuring the chaos&lt;/h2&gt;
+&lt;h3 id=&quot;distance&quot;&gt;Distance&lt;/h3&gt;
+&lt;p&gt;For the PID controller we used the value of the error. This error can be measured in different ways. The first approach was simply measuring the horizontal distance between the reference (center of the image) and the current point. This point has one parameter to play with, the row where the distance is measured:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/error1.png&quot; alt=&quot;ErrorDist&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+Experimentally it is proved that the best row is the closest to the horizon line, given that the change on the reference is measured with more time and distance. Currently, the line is not measured in one row, but in several rows, extracting a polynomial and interpolating the value for that row to improve the robustness. This is the method used for the previous videos, but the best results are limited due to the nature of this measurement.&lt;/p&gt;
+
+&lt;h3 id=&quot;angle&quot;&gt;Angle&lt;/h3&gt;
+&lt;p&gt;To improve the controller, another measurement is tested: Angles. Here, the value of the error depends on the angle of the line from the car. This method admits two parameters, the measured row and the point from where the angle is measured:
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/error2.png&quot; alt=&quot;ErrorAngle&quot; width=&quot;80%&quot; /&gt;
+&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;br /&gt;
+When the base is higher the error raises faster and the controller is more robust, being able to step up the speed of the vehicle reaching a value of 15 while following the line because the reactions are faster.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/N7fTuUomPjc&quot;&gt;
+&lt;/iframe&gt;
 
 &lt;h2 id=&quot;double-pd&quot;&gt;Double PD&lt;/h2&gt;
-
+&lt;p&gt;The next step to improve the controller is… More controllers. The needs on a straight line and on a curve are different, and the speed can be raised when the control is more simple.&lt;/p&gt;
 &lt;h3 id=&quot;curve-detection&quot;&gt;Curve detection&lt;/h3&gt;
+&lt;p&gt;To be able to know if we are on a curve, the first step is sampling the line and calculating a value to check the fitting of the line over a straight line. The first test calculation is the R2, but when the pixels are slightly not aligned due to a bad detection this value raises and it is classified as a straight line. The second method is measuring the distance from each point to the perfect straight line, giving a more balanced estimation. The line is classified as curve when the distance is bigger than a threshold value.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Extra ideas
--Vacío control
--Faster&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h3 id=&quot;control&quot;&gt;Control&lt;/h3&gt;
+&lt;p&gt;The control is simple. Each controller is used with the classification of the curve detector. The straight line controller has a lower value of P because the control is simpler, and the speed used along this controller is considerably higher, reaching the value of 25.
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/3Ei3zmC6uDo&quot;&gt;
+&lt;/iframe&gt;
 
-&lt;p&gt;Image JdeRobot
-&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.</summary></entry><entry><title type="html">First-tour</title><link href="http://localhost:4000/First-tour/" rel="alternate" type="text/html" title="First-tour" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/First-tour</id><content type="html" xml:base="http://localhost:4000/First-tour/">&lt;p&gt;This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain some considerations to make on choosing the measured variables and some methods to achieve a better and more robust control.</summary></entry><entry><title type="html">First tour</title><link href="http://localhost:4000/First-tour/" rel="alternate" type="text/html" title="First tour" /><published>2020-02-22T00:00:00+01:00</published><updated>2020-02-22T00:00:00+01:00</updated><id>http://localhost:4000/First-tour</id><content type="html" xml:base="http://localhost:4000/First-tour/">&lt;p&gt;This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.&lt;/p&gt;
 
 &lt;h2 id=&quot;p-controller&quot;&gt;P controller&lt;/h2&gt;
 &lt;p&gt;The first proposed controller is a simple P controller. This means that the value of the control action in the current instant (uk) is proportional to the difference between the desired value (ref) and the measured value (yk) of the control variable. In this case, the equation on the loop is something like the following one:&lt;/p&gt;
@@ -25,9 +82,10 @@
 
 &lt;p&gt;As mentioned before, the control action for this first test is directly the angular speed (W) of the vehicle, with a fixed value of linear speed (V). The measured value is not so straightforward and there are several possible measurable values from the processed image that will be discussed on the following post. For this one, the measured value is the position on pixels of the center of the line on the first row of the image, calculated as the mean value of the pixels labeled as line. The set point or reference is the desired position on pixels of the line, in this case the center of the image.&lt;/p&gt;
 
-&lt;p&gt;With this, and performing some initial tests to find the appropriate values for this 2 parameters (P and V) we get a first working controller!&lt;/p&gt;
-
-&lt;p&gt;Video P&lt;/p&gt;
+&lt;p&gt;With this, and performing some initial tests to find the appropriate values for this 2 parameters (P and V) we get a first working controller!
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/_5p_hDuIynk&quot;&gt;
+&lt;/iframe&gt;
 
 &lt;h2 id=&quot;pd-controller&quot;&gt;PD controller&lt;/h2&gt;
 &lt;p&gt;Working a bit more, we can use not just the actual value of the error (ek) calculated as (ref - y) but also the past values to calculate the control action. In this case, it’s only needed to initialize a variable to store the past value of the error and update the control action with the following equation:&lt;/p&gt;
@@ -35,14 +93,33 @@
   &lt;p&gt;uk = P * ek + D * (ek - ek-1)&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;p&gt;In this case, tuning the 3 parameters it’s observable that the controller can reach a greater speed without losing the stability, as we include the value of the error tendency on the formula. With this simple steps, we designed our first working controller*!&lt;/p&gt;
-
-&lt;p&gt;Video PD&lt;/p&gt;
+&lt;p&gt;In this case, tuning the 3 parameters it’s observable that the controller can reach a greater speed without losing the stability, as we include the value of the error tendency on the formula. With this simple steps, we designed our first working controller*!
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;iframe width=&quot;100%&quot; src=&quot;https://www.youtube.com/embed/0oiFbe1A1IA&quot;&gt;
+&lt;/iframe&gt;
 
 &lt;p&gt;*Do not try this with you own car. Seriously.&lt;/p&gt;
 
-&lt;p&gt;Image JdeRobot
-&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.</summary></entry><entry><title type="html">Hello World + Problem statement</title><link href="http://localhost:4000/Hello-World/" rel="alternate" type="text/html" title="Hello World + Problem statement" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/Hello-World</id><content type="html" xml:base="http://localhost:4000/Hello-World/">&lt;p&gt;This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the &lt;a href=&quot;https://jderobot.github.io/&quot;&gt;JdeRobot&lt;/a&gt; platform. The first one is the line follower explained after this intro.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This post will explain the first design of a PID controller for the line follower to make it able to do a first complete lap. PIDs are a control method based on a fast loop with feedback from some kind of sensors. In this case, the sensor is the camera and the desired control variable is the steering speed.</summary></entry><entry><title type="html">Image processing</title><link href="http://localhost:4000/Image-Processing/" rel="alternate" type="text/html" title="Image processing" /><published>2020-02-21T00:00:00+01:00</published><updated>2020-02-21T00:00:00+01:00</updated><id>http://localhost:4000/Image-Processing</id><content type="html" xml:base="http://localhost:4000/Image-Processing/">&lt;p&gt;In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.&lt;/p&gt;
+
+&lt;p&gt;Let’s take a look at an example of a frame extracted from the car and the final result:
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/image_proc.png&quot; alt=&quot;Processing&quot; width=&quot;95%&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;The line is clearly of a different color from the rest of the image, being able to segment it by a simple color filter. To make it more robust, the image is processed in the HSV color-space, as the color of the line will be always red but the saturation and brightness could be different. Then, the line is defined as the pixels that are between a range of values on the HSV color-space. Furthermore, there is a part of the image with non-relevant information to track the line, given that the circuit is plain, so the mask is cropped to only contain relevant information.&lt;/p&gt;
+
+&lt;p&gt;To be able to show this processing, the resulting mask is converted to a 3 channel image by formatting the result as a uint8 array with 3 concatenated masks on the channel axis. An additional step is performed to show both the original frame and the processed frame side by side. The processed frame is resized to fit the heigth of the original one, and then they are concatenated side by side.&lt;/p&gt;
+
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.</summary></entry><entry><title type="html">Hello World and Problem statement</title><link href="http://localhost:4000/Hello-World/" rel="alternate" type="text/html" title="Hello World and Problem statement" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/Hello-World</id><content type="html" xml:base="http://localhost:4000/Hello-World/">&lt;p&gt;This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the &lt;a href=&quot;https://jderobot.github.io/&quot;&gt;JdeRobot&lt;/a&gt; platform. The first one is the line follower explained after this brief intro.&lt;/p&gt;
 
 &lt;h2 id=&quot;blog-configuration&quot;&gt;Blog configuration&lt;/h2&gt;
 &lt;p&gt;For this blog I’ll be using Jekyll Now combined with Github pages. To easily setup your own blog on Github pages  head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
@@ -50,19 +127,12 @@
 &lt;h2 id=&quot;problem-statement&quot;&gt;Problem statement&lt;/h2&gt;
 &lt;p&gt;The follow line project consists in… Exactly that. With a F1 car. Fast. But keep calm, this will be comfortably done on a web platform with a simulated car capable of taking images with a camera on its front.&lt;/p&gt;
 
-&lt;p&gt;Image car + Camera&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/car.png&quot; alt=&quot;Car&quot; width=&quot;95%&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+The control is directly focused on the basic movements, speed and angular speed. No more steering wheels, gears or pedals, with only two controllable actuators the control is simplified to what really matters. The goal is to keep the car as close as possible to the line while completing the full lap. And then… make it faster without crashing on the attempt.&lt;/p&gt;
 
-&lt;p&gt;The control is directly focused on the basic movements, speed and angular speed. No more steering wheels, gears or pedals, with only two controllable actuators the control is simplified to what really matters. The goal is to keep the car as close as possible to the line while completing the full lap. And then… make it faster without crashing on the attempt.&lt;/p&gt;
-
-&lt;p&gt;Image JdeRobot
-&lt;img src=&quot;images/test.png&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the JdeRobot platform. The first one is the line follower explained after this intro.</summary></entry><entry><title type="html">Image processing</title><link href="http://localhost:4000/Image-Processing/" rel="alternate" type="text/html" title="Image processing" /><published>2020-02-20T00:00:00+01:00</published><updated>2020-02-20T00:00:00+01:00</updated><id>http://localhost:4000/Image-Processing</id><content type="html" xml:base="http://localhost:4000/Image-Processing/">&lt;p&gt;In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.&lt;/p&gt;
-
-&lt;p&gt;Let’s take a look at an example of a frame extracted from the car.
-Image Car&lt;/p&gt;
-
-&lt;p&gt;The line is clearly of a different color from the rest of the image, being able to segment it by a simple color filter. To make it more robust, the image is processed in the HSV color-space, as the color of the line will be always red but the saturation and brightness could be different. Then, the line is defined as the pixels that are between a range of values on the HSV color-space. Furthermore, there is a part of the image with non-relevant information to track the line, given that the circuit is plain, so the mask is cropped to only contain relevant information.&lt;/p&gt;
-
-&lt;p&gt;To be able to show this processing, the resulting mask is converted to a 3 channel image by formatting the result as a uint8 array with 3 concatenated masks on the channel axis. An additional step is performed to show both the original frame and the processed frame side by side. The processed frame is resized to fit the heigth of the original one, and then they are concatenated side by side.&lt;/p&gt;
-
-&lt;p&gt;Image JdeRobot
-&lt;img src=&quot;&amp;quot;Test&amp;quot;&quot; alt=&quot;Test&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">In this post I’ll talk about the method to process the captured images from the car so it becomes easier to extract information from them.</summary></entry></feed>
+&lt;p align=&quot;center&quot;&gt;
+&lt;a href=&quot;https://jderobot.github.io/&quot;&gt;
+&lt;img alt=&quot;JdeRobot&quot; src=&quot;https://avatars1.githubusercontent.com/u/10959337?s=200&amp;amp;v=4&quot; width=&quot;15%&quot; /&gt;
+&lt;/a&gt;
+&lt;/p&gt;</content><author><name></name></author><category term="FollowLine" /><summary type="html">This is my first entry for the blog! On this blog I’ll be talking about the different purposed exercises on the JdeRobot platform. The first one is the line follower explained after this brief intro.</summary></entry></feed>

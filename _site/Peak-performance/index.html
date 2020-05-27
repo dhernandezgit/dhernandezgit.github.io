@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Peak performance – Daniel Hernández – Blog for Robotic vision</title>
+
+        <meta charset="utf-8" />
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
+
+    
+    <meta name="description" content="This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!
+
+" />
+    <meta property="og:description" content="This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!
+
+" />
+    
+    <meta name="author" content="Daniel Hernández" />
+
+    
+    <meta property="og:title" content="Peak performance" />
+    <meta property="twitter:title" content="Peak performance" />
+    
+
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="Daniel Hernández - Blog for Robotic vision" href="/feed.xml" />
+
+    <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
+  </head>
+
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <a href="" class="site-avatar"><img src="https://github.com/dhernandezgit/dhernandezgit.github.io/raw/master/images/logo.png" /></a>
+
+          <div class="site-info">
+            <h1 class="site-name"><a href="/">Daniel Hernández</a></h1>
+            <p class="site-description">Blog for Robotic vision</p>
+          </div>
+
+          <nav>
+            <a href="/index/">Index</a>
+            <!--<a href="../index">Index</a>-->
+            <a href="/about/">About</a>
+          </nav>
+        </header>
+      </div>
+    </div>
+
+    <div id="main" role="main" class="container">
+      <article class="post">
+  <h1>Peak performance</h1>
+
+  <div class="entry">
+    <p>This post explain the last tricks to get a fast and robust controller. To the infinity and beyond!</p>
+
+<h2 id="one-control-to-rule-them-all">One control to rule them all</h2>
+<p>What happens when the controller lose control? This is the part where we prevent the possible situation of not being able to find the line. The current solution is going back slowly and spinning in the opposite direction of where the line was last seen. This way the controller is able to refind the line and go back to the circuit… If the car model survived the crash.</p>
+
+<h2 id="faster">Faster</h2>
+<p>The first option to break records is fine tuning. The process to find the best controller was slowly increasing the speed of one part of the control and adjusting each one of the parameters separately, and then increasing the speed of the opposite part. This method, as simple as it seems really increased the performance of the control, being able to reach speeds of 25 over the curves.
+<br /><br /></p>
+<iframe width="100%" src="https://www.youtube.com/embed/AnQLBhLMvBQ">
+</iframe>
+<p><br /><br />
+The last option to gain some extra milliseconds is including acceleration to the controller. In this case it is achieved by increasing the speed reference while it remains the same (line or curve) and resetting the value to the starting value when the control changes. This method allowed to reach the speed of 50 on the long straight lines, but failing to work properly on the curves.
+<br /><br /></p>
+<iframe width="100%" src="https://www.youtube.com/embed/mCYW-yUiIjA">
+</iframe>
+<p><br /><br />
+Finally, here is a detailed tour of the circuit with a stable and fast controller, playing with the Gazebo interface.
+<br /><br /></p>
+<iframe width="100%" src="https://www.youtube.com/embed/3L1nTG8VqS8">
+</iframe>
+
+<p>Thanks for reading!</p>
+
+<p align="center">
+<a href="https://jderobot.github.io/">
+<img alt="JdeRobot" src="https://avatars1.githubusercontent.com/u/10959337?s=200&amp;v=4" width="15%" />
+</a>
+</p>
+
+  </div>
+
+  <div class="date">
+    Written on May 22, 2020
+  </div>
+
+  
+</article>
+
+    </div>
+
+    <div class="wrapper-footer">
+      <div class="container">
+        <footer class="footer">
+          
+
+
+
+<a href="https://github.com/dhernandezgit"><i class="svg-icon github"></i></a>
+<a href="https://instagram.com/dhaniel.photography"><i class="svg-icon instagram"></i></a>
+<a href="https://www.linkedin.com/in/daniel-hernández-ferrándiz-b30974ab"><i class="svg-icon linkedin"></i></a>
+
+
+<a href="https://www.twitter.com/DanielHdezFdiz"><i class="svg-icon twitter"></i></a>
+
+
+
+        </footer>
+      </div>
+    </div>
+
+    
+
+  </body>
+</html>

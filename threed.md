@@ -1,8 +1,8 @@
 ---
 layout: postpage
-title: Follow Line
-permalink: /follow-line/
-tag: FollowLine
+title: 3D Reconstruction
+permalink: /reconstruction/
+tag: Reconstruction
 ---
 
-Here are the posts for the line follower in chronological order:
+Here are the posts for the 3D reconstruction in chronological order:
